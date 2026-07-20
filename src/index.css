@@ -137,9 +137,18 @@ body {
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
+.card-clickable {
+  cursor: pointer;
+}
+
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(38, 35, 25, 0.08);
+}
+
+.card-clickable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .card-image-wrap {
@@ -353,6 +362,130 @@ body {
   font-size: 0.85rem;
 }
 
+/* ---------- Detail page ---------- */
+
+.detail-page {
+  padding: 40px 0 80px;
+}
+
+.detail-back {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detail-main-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+}
+
+.detail-gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.detail-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+}
+
+.detail-copy {
+  padding: 4px 0;
+}
+
+.detail-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.detail-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.detail-price {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.detail-price-unit {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.detail-description {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin-bottom: 24px;
+}
+
+.detail-section {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+}
+
+.detail-section h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.detail-section p,
+.detail-list {
+  color: var(--ink-soft);
+}
+
+.detail-list {
+  padding-left: 18px;
+}
+
+.detail-list li + li {
+  margin-top: 6px;
+}
+
+.detail-actions {
+  margin-top: 28px;
+}
+
+.detail-actions .card-button {
+  min-width: 180px;
+}
+
 /* ---------- Accessibility ---------- */
 
 button:focus-visible {
@@ -363,5 +496,11 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .detail-hero {
+    grid-template-columns: 1fr;
   }
 }
